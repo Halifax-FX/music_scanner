@@ -1,0 +1,23 @@
+{
+    "name": "cd-bridge-app",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "bcrypt": "^5.1.0",
+      "cookie-parser": "^1.4.5",
+      "disconnect": "^1.2.2",
+      "express": "^4.17.1",
+      "express-handlebars": "^5.3.4",
+      "i": "^0.3.7",
+      "nanoid": "^3.3.4",
+      "save": "^2.9.0",
+      "sql-template-strings": "^2.2.2",
+      "sqlite": "^4.1.2",
+      "sqlite3": "^5.1.1",
+      "uuid": "^8.3.2"
+    }
+  }
+  
