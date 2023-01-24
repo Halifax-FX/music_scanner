@@ -1,17 +1,26 @@
-<h1>Scan to add your music</h1>
-<fieldset><legend>Album to Add</legend>
-<label for="barcode">Barcode: </label>
-<input type="text" id="scannedBarcode" name="barcode">
+<div class="container">
+<h1 class="text-secondary">Scan to add your music</h1>
+<fieldset>
+    <label for="barcode">Barcode: </label>
+    <input type="text" id="scannedBarcode" name="barcode">
 </fieldset><br>
-<fieldset><legend>Results</legend>
-<label for="artist">Artist:</label>
-<input type="text" id="artist" name="artist" disabled><br><br>
-<label for="album">Album:</label>
-<input type="text" id="album" name="album" disabled><br><br>
-<label for="year">Year:</label>
-<input type="text" id="year" name="year" disabled><br><br>
-<label for="genre">Genre:</label>
-<input type="text" id="genre" name="genre" disabled><br><br>
-<label>Song List:</label><br><br>
-<textarea id="songs" name="songs" cols="80" disabled></textarea>
+</div>
+<div class="container border border-info">
+    <form action="/addAlbum" method="post" >
+<fieldset>
+    <legend>Results</legend>
+    <input type="hidden" id="barcode" name="barcode">
+    <label for="artist">Artist:</label>
+    <input type="text" id="artist" name="artist"><br><br>
+    <label for="album">Album:</label>
+    <input type="text" id="album" name="album"><br><br>
+    <label for="year">Year:</label>
+    <input type="text" id="year" name="year"><br><br>
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre"><br><br>
+    <label>Song List:</label><br><br>
+    <textarea id="songs" name="songs" cols="60"></textarea>
 </fieldset>
+<button type="submit">Add Album</button>
+</form>
+</div>

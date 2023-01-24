@@ -1,4 +1,4 @@
-window.addEventListener("load", async function() {
+window.addEventListener("load", async function () {
 
     // Grabs all the elements from the page that need populating
     let barcode = document.querySelector("#scannedBarcode");
@@ -7,6 +7,7 @@ window.addEventListener("load", async function() {
     let displayYear = document.querySelector("#year");
     let displayGenre = document.querySelector("#genre");
     let displaySongs = document.querySelector("#songs");
+    let barcodeValue = document.querySelector("#barcode");
 
     // updates values if there is a barcode already present
     if (barcode.value != null) {
@@ -32,7 +33,7 @@ window.addEventListener("load", async function() {
         const info = await response.json();
 
         // grabs the uri to get the tracklist and calls another helper function
-        const masterList = info.results[0].master_url;
+        const masterList = info.results[0].resource_url;
         getTrackList(masterList);
 
         // Splits out the artist and album info
@@ -40,11 +41,12 @@ window.addEventListener("load", async function() {
         const splitTitles = artistAndTitle.split('-')
         const artist = splitTitles[0];
         const album = splitTitles[1];
-        
+
         // Updates result displays
+        barcodeValue.value = barcode.value;
         displayArtist.value = artist;
         displayAlbum.value = album;
-        displayYear.value = info.results[0].year; 
+        displayYear.value = info.results[0].year;
         displayGenre.value = info.results[0].genre[0];
     }
 
@@ -52,7 +54,6 @@ window.addEventListener("load", async function() {
     async function getTrackList(url) {
         const response = await fetch(url);
         const info = await response.json();
-
         let trackList = "";
         const songList = info.tracklist;
         songList.forEach(element => {
